@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Registration;
-use Illuminate\Support\Facades\Validator as Validator;
-use hash;
+
 
 class RegistrationController extends Controller
 {
@@ -15,7 +15,7 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        return view('registration-view');
+
     }
 
 
@@ -43,19 +43,35 @@ class RegistrationController extends Controller
         // print_r($request->all());
 
         $request->validate([
-            'name' => 'required',
+            'fullName' => 'required',
             'email' => 'required|unique:registrations',
             'address' => 'required',
             'password' => 'required',
+            'password_confirmation' => 'required|same:password',
             'phone' => 'required|digits:10',
         ]);
         Registration::create([
-            'name' => $request->name,
+            'fullName' => $request->fullName,
             'email' => $request->email,
             'address' => $request->address,
-            'password' =>hash('sha256', $request->password),
+            'password' => hash('sha256', $request->password),
             'phone' => $request->phone,
         ]);
+
+
+        // $validator = Validator::make($request->all(), [
+        //     'name' => 'required',
+        //     'email' => 'required|unique:registrations',
+        //     'address' => 'required',
+        //     'password' => hash('sha256', $request->password),'required',
+        //     'phone' => 'required|digits:10',
+        // ]);
+
+        // if ($validator->fails()) {
+        //     return redirect('/register/create')
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
 
         // $Registrations = new Registration();
         // $Registrations->name = $request['name'];
@@ -65,6 +81,18 @@ class RegistrationController extends Controller
         // $Registrations->password = md5($request['password']);
         // $Registrations->save();
         return redirect('/register/view');
+    }
+
+    public function view()
+    {
+        $Registrations = Registration::all();
+        // echo "<pre>";
+        // print_r($Registrations->toArray());
+        // echo "</pre>";
+        // die;
+
+        $data= compact('Registrations');
+        return view('registration-view')->with($data);
     }
 
     /**
