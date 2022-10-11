@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Registration extends Model
 {
     use HasFactory;
+    protected $guarded = [
+        'id'
+    ];
 
     protected $table = "registrations";
-    protected $primaryKey="id";
+    protected $primaryKey = "id";
 }

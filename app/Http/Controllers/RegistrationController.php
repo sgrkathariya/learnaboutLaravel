@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Registration;
+use Illuminate\Support\Facades\Validator as Validator;
+use hash;
 
 class RegistrationController extends Controller
 {
@@ -14,13 +15,11 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        return view('form');
+        return view('registration-view');
     }
 
 
-    public function register(Request $request)
-    {
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -29,7 +28,7 @@ class RegistrationController extends Controller
      */
     public function create()
     {
-        //
+        return view('form');
     }
 
     /**
@@ -43,12 +42,29 @@ class RegistrationController extends Controller
         // echo "<pre>";
         // print_r($request->all());
 
-        $Registrations = new Registration();
-        $Registrations->name = $request['name'];
-        $Registrations->email = $request['email'];
-        $Registrations->address = $request['address'];
-        $Registrations->password = md5($request['password']);
-        $Registrations->save();
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:registrations',
+            'address' => 'required',
+            'password' => 'required',
+            'phone' => 'required|digits:10',
+        ]);
+        Registration::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'address' => $request->address,
+            'password' =>hash('sha256', $request->password),
+            'phone' => $request->phone,
+        ]);
+
+        // $Registrations = new Registration();
+        // $Registrations->name = $request['name'];
+        // $Registrations->email = $request['email']->unique;
+        // $Registrations->address = $request['address'];
+        // $Registrations->phone = $request['phone'];
+        // $Registrations->password = md5($request['password']);
+        // $Registrations->save();
+        return redirect('/register/view');
     }
 
     /**

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
+use App\Models\Registration;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,6 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/register', [RegistrationController::class, 'index']);
+Route::get('/register/view', [RegistrationController::class, 'index']);
+Route::get('/register/create', [RegistrationController::class, 'create']);
 Route::post('/register', [RegistrationController::class, 'store']);
