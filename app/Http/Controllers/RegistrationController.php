@@ -47,6 +47,7 @@ class RegistrationController extends Controller
         $Registrations->name = $request['name'];
         $Registrations->email = $request['email'];
         $Registrations->address = $request['address'];
+        $Registrations->password = md5($request['password']);
         $Registrations->save();
     }
 

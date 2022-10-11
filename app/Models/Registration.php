@@ -9,9 +9,6 @@ class Registration extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'email',
-        'address',
-    ];
+    protected $table = "registrations";
+    protected $primaryKey="id";
 }

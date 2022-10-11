@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('main-section')
-<div class="container p-4">
-    <div class="card m-auto p-4 col-7">
+<div class="container p-2">
+    <div class="card m-auto p-2 col-7">
         <form action="{{url('/')}}/register" method="post" class="m-auto col-8">
             @csrf
             <div class="container">
@@ -18,7 +18,13 @@
                     <label for="exampleAddress">Address</label>
                     <input type="text" name="address" class="form-control" id="exampleInputAddress" placeholder="Address">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="row justify-content-center">
+                <button type="submit" class="btn btn-primary text-center">Submit</button>
+                </div>
             </div>
         </form>
     </div>
