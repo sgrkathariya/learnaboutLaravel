@@ -116,7 +116,17 @@ class RegistrationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Registrations = Registration::find($id);
+        // echo "<pre>";
+        // print_r($Registrations->toArray());
+        if (is_null($Registrations)) {
+           return redirect()->route('view');
+        }else{
+            // $url=route('update',$id);
+            $url=url('register/update/').$id;
+            $data=compact('Registrations');
+            return view('registration-view')->with($data);
+        }
     }
 
     /**
@@ -128,7 +138,7 @@ class RegistrationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -156,6 +166,13 @@ class RegistrationController extends Controller
         if (!is_null($Registrations)) {
             $Registrations->delete();
         }
-        return redirect()->back();
+        /* return redirect()->back();
+                    or
+        return redirect()->route('view');
+                    or
+        return redirect('/register/view');
+        */
+        return redirect()->route('view');
     }
+
 }

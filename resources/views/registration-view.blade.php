@@ -33,7 +33,7 @@
                         @endif
                     </td>
                     <td scope="row">
-                        <a href="#"><i class="bi bi-pencil-square"></i></a>
+                        <a href="{{route('edit', ['id'=>$registration->id])}}"><i class="bi bi-pencil-square"></i></a>
                         <a href="{{route('delete', ['id'=>$registration->id])}}"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
