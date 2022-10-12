@@ -15,9 +15,27 @@
         body {
             font-family: 'Nunito', sans-serif;
         }
+    .inner::-webkit-scrollbar{
+        display: none;
+    }
+    .innerForForm::-webkit-scrollbar{
+        display: none;
+    }
     </style>
 </head>
 <body class="antialiased">
-    <h2 class="mt-4 text-center">
-        Welcome to LAravel
-    </h2>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link ml-3 mr-3 text-white" href="{{url('/')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-3 text-white" href="{{route('register')}}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-3 text-white" href="{{route('view')}}">View</a>
+                </li>
+            </ul>
+        </div>
+    </nav>

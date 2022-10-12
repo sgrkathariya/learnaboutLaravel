@@ -80,7 +80,7 @@ class RegistrationController extends Controller
         // $Registrations->phone = $request['phone'];
         // $Registrations->password = md5($request['password']);
         // $Registrations->save();
-        return redirect('/register/create');
+        return redirect('/register/view');
     }
 
     public function view()

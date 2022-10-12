@@ -15,16 +15,14 @@ use App\Models\Registration;
 |
 */
 
-Route::get('/home', function () {
-//     $demo = "<h1>Hello World</h1>";
-// $data = compact('name', 'demo');
-    return view('home')->name('home');
+Route::get('/', function () {
+    return view('home');
 });
 
 Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/register/view', [RegistrationController::class, 'view']);
-Route::get('/register/create', [RegistrationController::class, 'create']);
+Route::get('/register/view', [RegistrationController::class, 'view'])->name('view');
+Route::get('/register/create', [RegistrationController::class, 'create'])->name('register');
 Route::post('/register', [RegistrationController::class, 'store']);
