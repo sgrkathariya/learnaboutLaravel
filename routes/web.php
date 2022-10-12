@@ -26,3 +26,4 @@ Route::get('/about', function () {
 Route::get('/register/view', [RegistrationController::class, 'view'])->name('view');
 Route::get('/register/create', [RegistrationController::class, 'create'])->name('register');
 Route::post('/register', [RegistrationController::class, 'store']);
+Route::get('register/delete/{id}',[RegistrationController::class,'destroy'])->name('delete');

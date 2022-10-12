@@ -93,7 +93,7 @@ class RegistrationController extends Controller
 
         // return view('registration-view', compact('Registrations'));
 
-        $data= compact('Registrations');
+        $data = compact('Registrations');
         return view('registration-view')->with($data);
     }
 
@@ -139,6 +139,23 @@ class RegistrationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /* method of passing data from button
+         method 1
+      {{/register/delete/{{$registration->id}}
+      or {{url('/register/delete/')}}
+
+      method 2
+      {{route('delete', ['id' =>$registration->id])}}
+       */
+
+        // $Registrations = Registration::find($id)->delete();
+        //  echo "<pre>";
+        //     print_r($Registrations->toArray());
+
+        $Registrations = Registration::find($id);
+        if (!is_null($Registrations)) {
+            $Registrations->delete();
+        }
+        return redirect()->back();
     }
 }
