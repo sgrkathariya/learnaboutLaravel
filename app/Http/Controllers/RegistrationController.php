@@ -28,7 +28,10 @@ class RegistrationController extends Controller
      */
     public function create()
     {
-        return view('form');
+        $url=url('/register');
+        $title="Registration Form";
+        $data=compact('url','title');
+        return view('form')->with($data);
     }
 
     /**
@@ -43,7 +46,7 @@ class RegistrationController extends Controller
         // print_r($request->all());
 
         $request->validate([
-            'fullName' => 'required',
+            'fullname' => 'required',
             'email' => 'required|unique:registrations',
             'address' => 'required',
             'password' => 'required',
@@ -51,7 +54,7 @@ class RegistrationController extends Controller
             'phone' => 'required|digits:10',
         ]);
         Registration::create([
-            'fullName' => $request->fullName,
+            'fullname' => $request->fullname,
             'email' => $request->email,
             'address' => $request->address,
             'password' => hash('sha256', $request->password),
@@ -93,6 +96,7 @@ class RegistrationController extends Controller
 
         // return view('registration-view', compact('Registrations'));
 
+
         $data = compact('Registrations');
         return view('registration-view')->with($data);
     }
@@ -123,9 +127,10 @@ class RegistrationController extends Controller
            return redirect()->route('view');
         }else{
             // $url=route('update',$id);
-            $url=url('register/update/').$id;
-            $data=compact('Registrations');
-            return view('registration-view')->with($data);
+            $title="Update Form";
+            $url=url('register/update')."/".$id;
+            $data=compact('Registrations','url','title');
+            return view('form')->with($data);
         }
     }
 

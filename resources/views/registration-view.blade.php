@@ -13,7 +13,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Address</th>
                     <th scope="col">Phone</th>
-                    <th scope="col">Status</th>
+                    <!-- <th scope="col">Status</th> -->
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -21,17 +21,17 @@
                 @foreach($Registrations as $registration)
                 <tr>
                     <td scope="row">{{$loop->iteration}}</td>
-                    <td scope="row">{{$registration->fullName}}</td>
+                    <td scope="row">{{$registration->fullname}}</td>
                     <td scope="row">{{$registration->email}}</td>
                     <td scope="row">{{$registration->address}}</td>
                     <td scope="row">{{$registration->phone}}</td>
-                    <td scope="row">
+                    <!-- <td scope="row">
                         @if($registration->status == 1)
                         <span class="badge badge-success">Active</span>
                         @else
                         <span class="badge badge-danger">Inactive</span>
                         @endif
-                    </td>
+                    </td> -->
                     <td scope="row">
                         <a href="{{route('edit', ['id'=>$registration->id])}}"><i class="bi bi-pencil-square"></i></a>
                         <a href="{{route('delete', ['id'=>$registration->id])}}"><i class="fa-solid fa-trash"></i></a>

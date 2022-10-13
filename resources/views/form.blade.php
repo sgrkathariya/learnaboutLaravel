@@ -3,10 +3,12 @@
 <div class="container p-2">
     <div style="overflow-y: scroll; height: 480px;" class="inner">
         <div class="card m-auto p-2 col-8">
-            <form action="{{url('/')}}/register" method="post" class="row m-auto col-7">
+            <form action="{{$url}}" method="post" class="row m-auto col-7">
                 @csrf
                 <div class="container">
-                    <h2 class="text-center">Registration Form</h2>
+                    <h2 class="text-center text-primary">
+                     {{$title}}
+                    </h2>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
                         <input type="email" name="email" value="{{old('email')}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -18,9 +20,9 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName">Name</label>
-                        <input type="text" name="fullName" value="{{old('fullName')}}" class="form-control" id="exampleInputName" placeholder="Name">
+                        <input type="text" name="fullname" value="{{old('fullname')}}" class="form-control" id="exampleInputName" placeholder="Name">
                         <spam class="text-danger">
-                            @error('fullName')
+                            @error('fullname')
                             {{$message}}
                             @enderror
                         </spam>
@@ -43,6 +45,13 @@
                             @enderror
                         </span>
                     </div>
+                    <!-- <div class="form-group">
+                        <label for="">Status</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected value="1">1</option>
+                            <option value="0">0</option>
+                        </select>
+                    </div> -->
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">

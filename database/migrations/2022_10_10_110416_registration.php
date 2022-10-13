@@ -14,11 +14,10 @@ return new class extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
-            $table->string('fullName');
+            $table->string('fullname');
             $table->string('email');
             $table->string('address');
             $table->string('password');
-            $table->int('status')->default('1');
             $table->string('phone');
             $table->timestamps();
         });

@@ -29,3 +29,4 @@ Route::post('/register', [RegistrationController::class, 'store']);
 Route::get('register/delete/{id}',[RegistrationController::class,'destroy'])->name('delete');
 Route::get('register/edit/{id}',[RegistrationController::class,'edit'])->name('edit');
 Route::get('register/update/{id}',[RegistrationController::class,'update'])->name('update');
+Route::get('register/create/{id}',[RegistrationController::class,'create'])->name('create');
