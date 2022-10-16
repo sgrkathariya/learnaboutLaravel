@@ -11,7 +11,7 @@
                     </h2>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" name="email" value="{{old('email')}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" name="email" value="{{$Registrations->email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                         <span class="text-danger">
                             @error('email')
                             {{$message}}
@@ -20,7 +20,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName">Name</label>
-                        <input type="text" name="fullname" value="{{old('fullname')}}" class="form-control" id="exampleInputName" placeholder="Name">
+                        <input type="text" name="fullname" value="{{$Registrations->fullname}}" class="form-control" id="exampleInputName" placeholder="Name">
                         <spam class="text-danger">
                             @error('fullname')
                             {{$message}}
@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleAddress">Address</label>
-                        <input type="text" name="address" value="{{old('address')}}" class="form-control" id="exampleInputAddress" placeholder="Address">
+                        <input type="text" name="address" value="{{$Registrations->address}}" class="form-control" id="exampleInputAddress" placeholder="Address">
                         <span class="text-danger">
                             @error('address')
                             {{$message}}
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label for="examplePhone">Phone</label>
-                        <input type="text" name="phone" value="{{old('phone')}}" class="form-control" id="exampleInputAddress" placeholder="Phone">
+                        <input type="text" name="phone" value="{{$Registrations->phone}}" class="form-control" id="exampleInputAddress" placeholder="Phone">
                         <span class="text-danger">
                             @error('phone')
                             {{$message}}

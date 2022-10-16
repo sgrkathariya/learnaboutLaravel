@@ -143,7 +143,13 @@ class RegistrationController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        $Registrations=Registration::find($id);
+        $Registrations->fullname=$request['fullname'];
+        $Registrations->email=$request['email'];
+        $Registrations->address=$request['address'];
+        $Registrations->phone=$request['phone'];
+        $Registrations->save();
+        return redirect()->route('view');
     }
 
     /**
