@@ -1,55 +1,46 @@
-<?php
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-use Illuminate\Contracts\Http\Kernel;
-use Illuminate\Http\Request;
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <title>Namrata Chaudhary</title>
+    <style>
+        body {
+            background-color: #267a18;
+        }
 
-define('LARAVEL_START', microtime(true));
+        .img {
+            text-align: center;
+            display: block;
+            margin: 90px 0px 90px 0px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 200px;
 
-/*
-|--------------------------------------------------------------------------
-| Check If The Application Is Under Maintenance
-|--------------------------------------------------------------------------
-|
-| If the application is in maintenance / demo mode via the "down" command
-| we will load this file so that any pre-rendered content can be shown
-| instead of starting the framework, which could cause an exception.
-|
-*/
+        }
 
-if (file_exists($maintenance = __DIR__.'/storage/framework/maintenance.php')) {
-    require $maintenance;
-}
+        @media (max-width:700px) {
+            .img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
 
-/*
-|--------------------------------------------------------------------------
-| Register The Auto Loader
-|--------------------------------------------------------------------------
-|
-| Composer provides a convenient, automatically generated class loader for
-| this application. We just need to utilize it! We'll simply require it
-| into the script here so we don't need to manually load our classes.
-|
-*/
+                text-align: center;
 
-require __DIR__.'/vendor/autoload.php';
+            }
 
-/*
-|--------------------------------------------------------------------------
-| Run The Application
-|--------------------------------------------------------------------------
-|
-| Once we have the application, we can handle the incoming request using
-| the application's HTTP kernel. Then, we will send the response back
-| to this client's browser, allowing them to enjoy our application.
-|
-*/
+        }
+    </style>
+</head>
 
-$app = require_once __DIR__.'/bootstrap/app.php';
+<body>
+    <section class="img">
+        <img src="img.png" alt="">
+    </section>
+</body>
 
-$kernel = $app->make(Kernel::class);
-
-$response = $kernel->handle(
-    $request = Request::capture()
-)->send();
-
-$kernel->terminate($request, $response);
+</html>
