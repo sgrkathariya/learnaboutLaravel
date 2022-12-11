@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Registration;
 
-
 class RegistrationController extends Controller
 {
     /**
@@ -17,9 +16,6 @@ class RegistrationController extends Controller
     {
         return view('home');
     }
-
-
-
 
     /**
      * Show the form for creating a new resource.
