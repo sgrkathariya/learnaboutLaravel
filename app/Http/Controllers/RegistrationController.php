@@ -170,7 +170,6 @@ class RegistrationController extends Controller
        */
 
         // $Registrations = Registration::find($id)->delete();
-        //  echo "<pre>";
         //     print_r($Registrations->toArray());
 
         $Registrations = Registration::find($id);
